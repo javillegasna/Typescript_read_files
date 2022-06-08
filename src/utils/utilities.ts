@@ -63,7 +63,7 @@ const intersectObjects = (
 
 const compareTrees = (
   data: dataObject,
-  action: (a: string[], b: string[]) => string[] | number
+  action: (a: string[], b: string[]) => number
 ) => {
   //get keys of the data set
   const keysArray = Object.keys(data);
@@ -152,6 +152,7 @@ const toStringFormat = (dataList: dataObject[], joiner = "Output") =>
     const outTemplate = `${joiner}\n${setString}`;
     return acc + outTemplate;
   }, "");
+
 const saveFile = async (filePath: string, content: string) => {
   try {
     filePath = path.resolve(__dirname, filePath);
@@ -181,6 +182,8 @@ const logger = (
 export {
   readFile,
   transformData,
+  dateTree,
+  objectBuilder,
   compareTrees,
   intersectObjects,
   formatData,
