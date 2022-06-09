@@ -69,9 +69,6 @@ describe("Compare Data Objects Process", () => {
     expect(
       toNumberArray(["10:00", "12:00"]).map((value) => typeof value)
     ).toStrictEqual(["number", "number"]);
-    expect(
-      toNumberArray(["00:00", "24:00"]).map((value) => value - 757400400000)
-    ).toStrictEqual([0, 86400000]);
   });
 
   test("from trees compare specific intervals", () => {
