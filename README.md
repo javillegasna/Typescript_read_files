@@ -20,6 +20,7 @@ As is evident, each piece of data is separated by a specific word or character.
 |  Set  | Row | Name | Date | Interval |
 |-------|-----|------|------|----------|
 |INPUT\n| \n  |  =   |   ,  |    -     |
+
 It is necessary to consider that although the line break is not visible, it is interpreted with the character `\n` o "line break".
 
 In addition, the day and interval are not separated by any character, so it is necessary to define a name with a defined length or they will not be separable. In this occasion it has been defined as follows
