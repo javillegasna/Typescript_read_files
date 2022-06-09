@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "dev": "tsnd ./src",
-    "build": "tsc && mkdir ./dist/data/ && cp ./src/data/* ./dist/data/",
+    "prebuild":"rm -rf ./dist",
+    "postBuild":"mkdir ./dist/data/ && cp ./src/data/* ./dist/data/",
+    "build": "npm run prebuild && tsc && npm run postBuild",
     "start": "node ./dist"
   },
   "repository": {

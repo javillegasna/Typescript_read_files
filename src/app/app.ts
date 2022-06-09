@@ -1,7 +1,7 @@
 import {
   readFile,
   transformData,
-  compareTrees,
+  compareObjects,
   intersectObjects,
   formatData
 } from "../utils/utilities";
@@ -16,7 +16,7 @@ const main = (filePath: string) => {
 
   //processing data
   const output = dataList
-    .map((data) => compareTrees(data, intersectObjects))
+    .map((data) => compareObjects(data, intersectObjects))
     .map((data) => formatData(data));
   return output;
 };

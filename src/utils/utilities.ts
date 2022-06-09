@@ -12,8 +12,9 @@ const formatData = (dataList: dataObject[]) =>
 
 /*Problem Solution*/
 const toNumberArray = (stringDateArray: string[]) =>
-  stringDateArray.map((stringDate) =>
-    new Date(`October 13, 2014 ${stringDate}:00`).getTime()
+  // If Base day is de same its possible to compere dates
+  stringDateArray.map(
+    (stringDate) => new Date(`January 01, 1994 ${stringDate}:00`).getTime()
   );
 
 const intersectIntervals = (
@@ -29,7 +30,7 @@ const intersectIntervals = (
       Math.min(firstInterval[1], secondInterval[1]) -
       Math.max(firstInterval[0], secondInterval[0]);
 
-    return interceptionOfIntervals > 0 ? acc + 1 : acc;
+    return interceptionOfIntervals >= 0 ? acc + 1 : acc;
   }, 0);
 
 const intersectArrays = (
@@ -61,13 +62,12 @@ const intersectObjects = (
   return comperedTrees;
 };
 
-const compareTrees = (
+const compareObjects = (
   data: dataObject,
   action: (a: string[], b: string[]) => number
 ) => {
   //get keys of the data set
   const keysArray = Object.keys(data);
-
   //combining keys without repeating
   const listOfCoincidences = keysArray.reduce(
     (acc: dataObject[], key, index) => {
@@ -167,8 +167,8 @@ const logger = (
   data: dataObject[],
   out = Out.Console,
   format = Format.Output,
-  name = "out",
   ext = Extension.JSON,
+  name = "out",
   path = "../data/"
 ) => {
   let outFormat = "";
@@ -184,8 +184,11 @@ export {
   transformData,
   dateTree,
   objectBuilder,
-  compareTrees,
+  compareObjects,
   intersectObjects,
+  intersectIntervals,
+  toNumberArray,
+  intersectArrays,
   formatData,
   logger,
 };
