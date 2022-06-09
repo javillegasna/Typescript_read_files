@@ -1,5 +1,6 @@
 import {
   compareObjects,
+  formatData,
   intersectArrays,
   intersectIntervals,
   intersectObjects,
@@ -108,3 +109,7 @@ describe("Compare Data Objects Process", () => {
       .toStrictEqual([{"RENE-TEO":1},{"RENE-MARCEL":1},{"TEO-MARCEL":2}])
   });
 });
+
+test("Formatting data",()=>{
+ expect(formatData([{"RENE-TEO":1},{"RENE-MARCEL":1},{"TEO-MARCEL":2}])).toStrictEqual({"RENE-TEO":1,"RENE-MARCEL":1,"TEO-MARCEL":2})
+})
